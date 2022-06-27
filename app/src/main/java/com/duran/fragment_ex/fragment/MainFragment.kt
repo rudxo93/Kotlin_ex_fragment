@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.duran.fragment_ex.MainActivity
 import com.duran.fragment_ex.R
+import com.duran.fragment_ex.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
@@ -15,6 +18,14 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_main, container, false)
+
+        val btn_change_menu = view.findViewById<Button>(R.id.btn_change)
+
+        btn_change_menu.setOnClickListener {
+            val fragment = MenuFragment()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.ft_main, fragment).commit()
+        }
 
         return view
     }

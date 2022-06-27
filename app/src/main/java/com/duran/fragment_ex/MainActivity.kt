@@ -11,18 +11,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment1 = MainFragment()
-        val fragment2 = MenuFragment()
+        val fragment_main = MainFragment()
+        val fragment_menu = MenuFragment()
 
         val btn_main = findViewById<Button>(R.id.button1)
         val btn_menu = findViewById<Button>(R.id.button2)
 
         btn_main.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment1).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_main).commit()
         }
 
         btn_menu.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment2).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_menu).commit()
+        }
+
+        fun changeFragment(index: Int) {
+            when(index) {
+                1 -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_main)
+                }
+                2 -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_menu)
+                }
+            }
         }
 
     }
