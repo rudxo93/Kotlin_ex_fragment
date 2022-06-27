@@ -31,8 +31,10 @@
     </LinearLayout>
 
     <fragment
+        android:id="@+id/ft_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:name="com.duran.fragment_ex.fragment.MainFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ln_layout"
