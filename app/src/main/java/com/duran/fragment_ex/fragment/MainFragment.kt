@@ -20,9 +20,16 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         val btn_change_menu = view.findViewById<Button>(R.id.btn_change)
+        val btn_change_setting = view.findViewById<Button>(R.id.btn_setting_change)
 
         btn_change_menu.setOnClickListener {
             val fragment = MenuFragment()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.ft_main, fragment).commit()
+        }
+
+        btn_change_setting.setOnClickListener {
+            val fragment = SettingFragment()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.ft_main, fragment).commit()
         }

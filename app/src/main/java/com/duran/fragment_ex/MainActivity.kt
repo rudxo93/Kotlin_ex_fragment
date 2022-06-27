@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.duran.fragment_ex.fragment.MainFragment
 import com.duran.fragment_ex.fragment.MenuFragment
+import com.duran.fragment_ex.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         val fragment_main = MainFragment()
         val fragment_menu = MenuFragment()
+        val fragment_setting = SettingFragment()
 
         val btn_main = findViewById<Button>(R.id.button1)
         val btn_menu = findViewById<Button>(R.id.button2)
+        val btn_setting = findViewById<Button>(R.id.button3)
 
         btn_main.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_main).commit()
@@ -25,15 +28,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_menu).commit()
         }
 
-        fun changeFragment(index: Int) {
-            when(index) {
-                1 -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_main)
-                }
-                2 -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_menu)
-                }
-            }
+        btn_setting.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.ft_main, fragment_setting).commit()
         }
 
     }
